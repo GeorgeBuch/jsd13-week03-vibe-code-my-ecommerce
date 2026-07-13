@@ -1,4 +1,5 @@
-﻿const form = document.getElementById('loginForm');
+﻿//555
+const form = document.getElementById('loginForm');
 const message = document.getElementById('loginMessage');
 const productGrid = document.getElementById('productGrid');
 
