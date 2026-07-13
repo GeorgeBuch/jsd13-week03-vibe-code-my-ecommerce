@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EVERYDAY STUDIO | Fashion Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="backdrop backdrop-one"></div>
+  <div class="backdrop backdrop-two"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#home">
+      <span class="brand-mark">ES</span>
+      <span>
+        <strong>EVERYDAY STUDIO</strong>
+        <small>Minimal fashion online</small>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="#products">Products</a>
+      <a href="#features">Features</a>
+      <a href="#login">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">Fashion e-commerce for daily wear</p>
+        <h1>Simple style. Clean look. Easy shopping.</h1>
+        <p class="lead">
+          A lightweight storefront concept for EVERYDAY STUDIO, built from the project analysis.
+          Designed for students, early-career workers, and minimal style lovers.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#products">Browse products</a>
+          <a class="btn btn-secondary" href="#login">Member login</a>
+        </div>
+        <ul class="stats">
+          <li><strong>3</strong><span>Featured items</span></li>
+          <li><strong>24/7</strong><span>Online access</span></li>
+          <li><strong>MongoDB</strong><span>Database ready</span></li>
+        </ul>
+      </div>
+
+      <aside class="login-panel" id="login">
+        <h2>Member Login</h2>
+        <p>Use your account to check orders and browse faster.</p>
+        <form id="loginForm">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" placeholder="Enter password" required />
+
+          <button type="submit">Sign In</button>
+        </form>
+        <p class="login-note" id="loginMessage">Demo form for the frontend prototype.</p>
+      </aside>
+    </section>
+
+    <section class="section" id="features">
+      <div class="section-head">
+        <p class="eyebrow">Project features</p>
+        <h2>Built for a small fashion store workflow</h2>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Register & Login</h3>
+          <p>Member access for customers and future admin roles.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Product Discovery</h3>
+          <p>Browse, search, and filter clothing items by category.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Order Tracking</h3>
+          <p>View order history and shipping status in one place.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="section-head">
+        <p class="eyebrow">Featured products</p>
+        <h2>Products loaded from the MongoDB collection</h2>
+      </div>
+      <div class="product-grid" id="productGrid">
+        <article class="product-card">
+          <div class="product-tag">T-Shirt</div>
+          <h3>Loading...</h3>
+          <p>Fetching products from the backend.</p>
+          <div class="product-footer">
+            <span>Stock --</span>
+            <strong>THB --</strong>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>EVERYDAY STUDIO prototype. HTML + CSS + JavaScript.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
