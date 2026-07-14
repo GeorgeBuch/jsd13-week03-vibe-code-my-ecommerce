@@ -10,13 +10,14 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const webDir = path.resolve(__dirname, '../web');
-
 const app = express();
 const PORT = process.env.PORT || 3000;
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/test';
+const indexPath = path.join(webDir, 'index.html');
 
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(webDir));
 
 const userSchema = new mongoose.Schema(
@@ -63,56 +64,34 @@ const User = mongoose.model('User', userSchema);
 const Product = mongoose.model('Product', productSchema);
 const Order = mongoose.model('Order', orderSchema);
 
-app.get('/api/health', (req, res) => {
-  res.json({ ok: true, database: 'test' });
-});
-
+app.get('/api/health', (req, res) => res.json({ ok: true, database: 'test' }));
 app.get('/api/users', async (req, res) => {
-  try {
-    const users = await User.find().lean();
-    res.json(users);
-  } catch (error) {
-    res.status(500).json({ message: 'Server error', error: error.message });
-  }
+  try { res.json(await User.find().lean()); } catch (error) { res.status(500).json({ message: 'Server error', error: error.message }); }
 });
-
 app.get('/api/products', async (req, res) => {
-  try {
-    const products = await Product.find().lean();
-    res.json(products);
-  } catch (error) {
-    res.status(500).json({ message: 'Server error', error: error.message });
-  }
+  try { res.json(await Product.find().lean()); } catch (error) { res.status(500).json({ message: 'Server error', error: error.message }); }
 });
-
 app.get('/api/orders', async (req, res) => {
+  try { res.json(await Order.find().lean()); } catch (error) { res.status(500).json({ message: 'Server error', error: error.message }); }
+});
+app.post('/api/login', async (req, res) => {
   try {
-    const orders = await Order.find().lean();
-    res.json(orders);
+    const { email, password } = req.body;
+    if (!email || !password) return res.status(400).json({ message: 'Email and password are required.' });
+    const user = await User.findOne({ email, password }).lean();
+    if (!user) return res.status(401).json({ message: 'Invalid email or password.' });
+    res.json({ message: 'Login successful', user: { fullname: user.fullname, email: user.email, role: user.role } });
   } catch (error) {
     res.status(500).json({ message: 'Server error', error: error.message });
   }
 });
+app.get('*', (req, res) => res.sendFile(indexPath));
 
-app.use((req, res) => {
-  res.sendFile(path.join(webDir, 'index.html'));
-});
-
-async function startServer() {
-  try {
-    if (!MONGODB_URI) {
-      throw new Error('MONGODB_URI is not set');
-    }
-
-    await mongoose.connect(MONGODB_URI);
-    app.listen(PORT, () => {
-      console.log(`Server running on http://localhost:${PORT}`);
-      console.log('Connected to MongoDB database: test');
-    });
-  } catch (error) {
-    console.error('MongoDB connection failed:', error.message);
-    process.exit(1);
-  }
+async function start() {
+  await mongoose.connect(MONGODB_URI);
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+    console.log('Connected to MongoDB database: test');
+  });
 }
-
-startServer();
+start().catch((error) => { console.error(error.message); process.exit(1); });

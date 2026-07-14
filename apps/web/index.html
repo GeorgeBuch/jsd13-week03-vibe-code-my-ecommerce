@@ -1,113 +1,117 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EVERYDAY STUDIO | Fashion Store</title>
+  <title>EVERYDAY STUDIO</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;550;600&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-  <div class="backdrop backdrop-one"></div>
-  <div class="backdrop backdrop-two"></div>
-
-  <header class="topbar">
+  <header class="nav-bar">
     <a class="brand" href="#home">
       <span class="brand-mark">ES</span>
-      <span>
+      <span class="brand-copy">
         <strong>EVERYDAY STUDIO</strong>
-        <small>Minimal fashion online</small>
+        <small>ร้านแฟชั่นมินิมอลออนไลน์</small>
       </span>
     </a>
-    <nav class="nav">
-      <a href="#products">Products</a>
-      <a href="#features">Features</a>
-      <a href="#login">Login</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#products">สินค้า</a>
+      <a href="#features">ฟีเจอร์</a>
+      <a href="#login">เข้าสู่ระบบ</a>
     </nav>
   </header>
 
   <main>
     <section class="hero" id="home">
-      <div class="hero-copy">
-        <p class="eyebrow">Fashion e-commerce for daily wear</p>
-        <h1>Simple style. Clean look. Easy shopping.</h1>
-        <p class="lead">
-          A lightweight storefront concept for EVERYDAY STUDIO, built from the project analysis.
-          Designed for students, early-career workers, and minimal style lovers.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#products">Browse products</a>
-          <a class="btn btn-secondary" href="#login">Member login</a>
+      <div class="hero-media" aria-hidden="true">
+        <div class="hero-media-glow"></div>
+        <div class="hero-media-frame">
+          <div class="hero-media-label">หน้าร้านแบบภาพยนตร์</div>
+          <div class="hero-media-bands">
+            <span></span><span></span><span></span>
+          </div>
         </div>
-        <ul class="stats">
-          <li><strong>3</strong><span>Featured items</span></li>
-          <li><strong>24/7</strong><span>Online access</span></li>
-          <li><strong>MongoDB</strong><span>Database ready</span></li>
-        </ul>
       </div>
 
-      <aside class="login-panel" id="login">
-        <h2>Member Login</h2>
-        <p>Use your account to check orders and browse faster.</p>
-        <form id="loginForm">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="you@example.com" required />
-
-          <label for="password">Password</label>
-          <input id="password" name="password" type="password" placeholder="Enter password" required />
-
-          <button type="submit">Sign In</button>
-        </form>
-        <p class="login-note" id="loginMessage">Demo form for the frontend prototype.</p>
-      </aside>
+      <div class="hero-copy">
+        <p class="eyebrow">ร้านเสื้อผ้าออนไลน์สำหรับใส่ได้ทุกวัน</p>
+        <h1>เรียบง่าย ดูดี และซื้อได้สะดวก</h1>
+        <p class="lead">
+          แนวคิดร้าน EVERYDAY STUDIO ที่ออกแบบจากข้อมูลโปรเจกต์เดิม
+          เหมาะกับนักเรียน นักศึกษา วัยทำงานตอนต้น และคนที่ชอบสไตล์มินิมอล
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-outline" href="#products">ดูสินค้า</a>
+          <a class="btn btn-fill" href="#login">เข้าสู่ระบบสมาชิก</a>
+        </div>
+      </div>
     </section>
 
-    <section class="section" id="features">
+    <section class="feature-band" id="features">
       <div class="section-head">
-        <p class="eyebrow">Project features</p>
-        <h2>Built for a small fashion store workflow</h2>
+        <p class="eyebrow">ฟีเจอร์ของโปรเจกต์</p>
+        <h2>ออกแบบมาเพื่อร้านเสื้อผ้าขนาดเล็กถึงกลาง</h2>
       </div>
       <div class="feature-grid">
         <article class="feature-card">
-          <h3>Register & Login</h3>
-          <p>Member access for customers and future admin roles.</p>
+          <h3>สมัครสมาชิกและเข้าสู่ระบบ</h3>
+          <p>รองรับลูกค้าและต่อยอดไปยังแอดมินในอนาคต</p>
         </article>
         <article class="feature-card">
-          <h3>Product Discovery</h3>
-          <p>Browse, search, and filter clothing items by category.</p>
+          <h3>ค้นพบสินค้าได้ง่าย</h3>
+          <p>ดูสินค้า ค้นหา และแยกตามหมวดหมู่ได้สะดวก</p>
         </article>
         <article class="feature-card">
-          <h3>Order Tracking</h3>
-          <p>View order history and shipping status in one place.</p>
+          <h3>ติดตามสถานะคำสั่งซื้อ</h3>
+          <p>ดูประวัติออเดอร์และสถานะจัดส่งได้ในที่เดียว</p>
         </article>
       </div>
     </section>
 
-    <section class="section" id="products">
-      <div class="section-head">
-        <p class="eyebrow">Featured products</p>
-        <h2>Products loaded from the MongoDB collection</h2>
+    <section class="transactional" id="products">
+      <div class="transactional-head">
+        <p class="eyebrow eyebrow-light">สินค้าแนะนำ</p>
+        <h2>สินค้าจากคอลเลกชัน MongoDB</h2>
       </div>
       <div class="product-grid" id="productGrid">
-        <article class="product-card">
-          <div class="product-tag">T-Shirt</div>
-          <h3>Loading...</h3>
-          <p>Fetching products from the backend.</p>
+        <article class="product-card product-card-placeholder">
+          <div class="pill-tag">กำลังโหลด</div>
+          <h3>กำลังโหลด...</h3>
+          <p>กำลังดึงข้อมูลสินค้าจาก backend</p>
           <div class="product-footer">
-            <span>Stock --</span>
+            <span>สต็อก --</span>
             <strong>THB --</strong>
           </div>
         </article>
       </div>
     </section>
+
+    <section class="login-section" id="login">
+      <article class="login-card">
+        <div>
+          <p class="eyebrow eyebrow-light">เข้าสู่ระบบสมาชิก</p>
+          <h2>ล็อกอิน</h2>
+          <p class="muted-light">ใช้บัญชีของคุณเพื่อตรวจสอบคำสั่งซื้อและดูสินค้าได้เร็วขึ้น</p>
+        </div>
+        <form id="loginForm" class="login-form">
+          <label for="email">อีเมล</label>
+          <input id="email" type="email" placeholder="you@example.com" required />
+          <label for="password">รหัสผ่าน</label>
+          <input id="password" type="password" placeholder="Password" required />
+          <button class="btn btn-fill" type="submit">เข้าสู่ระบบ</button>
+        </form>
+        <p id="message" class="muted-light">ฟอร์มตัวอย่างเชื่อมต่อกับ backend แล้ว</p>
+      </article>
+    </section>
   </main>
 
   <footer class="footer">
-    <p>EVERYDAY STUDIO prototype. HTML + CSS + JavaScript.</p>
+    <p>HTML + backend ในชุดเดียวแบบใช้งานง่าย</p>
   </footer>
-
-  <script src="script.js"></script>
+  <script src="/script.js"></script>
 </body>
 </html>
